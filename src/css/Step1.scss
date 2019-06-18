@@ -1,0 +1,183 @@
+.Modal_wrapper {
+  margin: 0 auto;
+  border: 1px solid red;
+  width: 640px;
+  height: 426px;
+  background: rgba(0, 85, 61, 0.7);
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-top: 100px;
+
+  .Modal_con {
+    padding: 100px;
+  }
+
+  .lp_txt_con {
+    color: white;
+    line-height: 35px;
+
+    .lp_header {
+      font-size: 2.5em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #ffc425;
+
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .lp_l1,
+    .lp_l2 {
+      font-size: 1.2em;
+      padding-top: 20px;
+      font-weight: 600;
+    }
+  }
+}
+
+img {
+  width: 100%;
+}
+
+.lp_logo_wrap {
+  position: relative;
+}
+
+.lp_logo_con {
+  width: 150px;
+  position: absolute;
+  top: -170px;
+  left: -150px;
+}
+
+.lp_btn_wrap {
+  position: relative;
+
+  .lp_btn_con {
+    position: absolute;
+    left: 280px;
+    top: 50px;
+    cursor: pointer;
+
+    .lp_btn {
+      background: linear-gradient(180deg, #ffc425 0%, #d18a0a 100%);
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 5px;
+      border: none;
+      font-size: 2em;
+      color: #111c30;
+      text-transform: uppercase;
+      font-weight: 900;
+      padding: 25px 100px;
+      &:hover {
+        background: linear-gradient(180deg, #d18a0a 0%, #ffc425 100%);
+        color: #00553d;
+        transition: 0.5s;
+      }
+    }
+  }
+}
+
+.lp_span {
+  font-weight: 900;
+  font-size: 1.4em;
+}
+
+// body {
+//   // background: linear-gradient(
+//   //   270deg,
+//   //   #363636 8.85%,
+//   //   #6e6e6e 41.67%,
+//   //   #6e6e6e 54.17%,
+//   //   #363636 91.15%
+//   // );
+
+// //   .Modal_wrapper {
+// //     margin: 0 auto;
+// //     display: grid;
+
+// //     grid-template-columns: 1fr minmax(100px, 1000px) 1fr;
+// //     justify-items: center;
+// //     grid-template-areas: ". Modal .";
+// //     margin-top: 150px;
+
+// //     .Modal_con {
+// //       display: grid;
+// //       grid-area: Modal;
+// //       grid-template-columns: 10px 1fr 1fr 10px;
+// //       grid-template-areas: ". Text Img .";
+// //       width: 706px;
+// //       height: 470px;
+
+// //       background: #111c30;
+// //       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+// //       .Modal_text {
+// //         grid-area: Text;
+// //         color: white;
+// //         width: 100%;
+// //         padding: 10px;
+// //         margin-top: 5%;
+
+// //         h1 {
+// //           font-family: Roboto;
+// //           font-style: normal;
+// //           font-weight: bold;
+// //           font-size: 52px;
+// //           line-height: 61px;
+// //           margin-bottom: 0;
+// //         }
+
+// //         p {
+// //           font-family: Roboto;
+// //           font-style: normal;
+// //           font-weight: normal;
+// //           font-size: 22px;
+// //           line-height: 26px;
+// //         }
+
+// //         .Button_con {
+// //           margin-top: 10%;
+
+// //           &:hover {
+// //             opacity: 0.8;
+// //           }
+// //           button {
+// //             width: 198px;
+// //             height: 45px;
+// //             border: none;
+// //             cursor: pointer;
+
+// //             font-family: Roboto;
+// //             font-style: normal;
+// //             font-weight: bold;
+// //             font-size: 22px;
+// //             line-height: 26px;
+// //             text-decoration-line: underline;
+
+// //             color: #111c30;
+
+// //             background: linear-gradient(180deg, #ffc425 0%, #d18a0a 100%);
+// //             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+// //           }
+// //           .button_tip {
+// //             margin-left: 23%;
+// //             transform: rotate(180deg);
+// //             border-color: #d18a0a transparent;
+// //             border-style: solid;
+// //             border-width: 0px 20px 12px 20px;
+// //             height: 0px;
+// //             width: 0px;
+// //             cursor: pointer;
+// //           }
+// //         }
+// //       }
+// //       img {
+// //         grid-area: Img;
+// //         width: 100%;
+// //         padding: 10px;
+// //         align-self: center;
+// //       }
+// //     }
+// //   }
+// // }

@@ -1,0 +1,34 @@
+body {
+  // overflow: hidden;
+  // overflow-x: hidden;
+}
+
+#site_content_wrapper {
+  background-image: url(../assets/landingBG.jpg);
+  background-size: cover;
+  background-position: fixed;
+  background-attachment: fixed;
+  display: grid;
+  height: 100vh;
+  width: 100%;
+  grid-template-columns: 1fr minmax(50px, 1060px) 1fr;
+  grid-template-areas: ". a .";
+  #site_content_container {
+    grid-area: a;
+    display: grid;
+    grid-template-columns: 220px 550px 250px;
+    grid-template-areas: "v m h";
+    margin-top: 30px;
+    grid-gap: 20px;
+  }
+}
+.Modal_wrapper {
+  grid-area: m;
+}
+.left_column {
+  grid-area: v;
+}
+
+.right_column {
+  grid-area: h;
+}

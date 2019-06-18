@@ -1,0 +1,141 @@
+// VARIABLES
+$dark-blue: #111c30;
+$list-gradient: linear-gradient(
+  180deg,
+  #fcfcfc 0%,
+  #f5f5f5 52.7%,
+  #eeeeee 93.87%
+);
+
+body {
+  // padding: 100px;
+}
+* {
+  box-sizing: border-box;
+}
+
+.left_column {
+  font-family: sans-serif;
+  z-index: 2;
+
+  .search {
+    padding: 10px;
+    height: 49px;
+    margin-bottom: -15px;
+    background-color: $dark-blue;
+    div {
+      background-color: #2c4672;
+      border-radius: 3px;
+      box-shadow: inset 1.5px 1.5px 1px rgba(0, 0, 0, 0.35);
+      color: white;
+      padding: 2px;
+      .seachIcon {
+        width: 25px;
+        height: 25px;
+        box-shadow: none;
+        padding: 3px;
+      }
+    }
+  }
+  width: 220px;
+  ul {
+    padding: 0;
+    li {
+      list-style-type: none;
+      white-space: pre-wrap;
+
+      & > div {
+        // padding: 10px;
+        // &:hover {
+        //   cursor: pointer;
+        //   background: #e0e0e0;
+        // }
+      }
+    }
+    .list_1 > div {
+      list-style-type: none;
+      background: $list-gradient;
+      display: grid;
+      grid-template-columns: 1fr 50px;
+
+      .list_1_txt {
+        text-transform: uppercase;
+        font-size: 13px;
+        font-weight: 900;
+      }
+    }
+  }
+}
+
+.sportsGrene {
+  ul {
+    .list_2 > div {
+      display: grid;
+      grid-template-columns: 1fr 50px;
+      background: #f8f8f8;
+      border: 0.4px solid #ffffff;
+      box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+      font-size: 13px;
+
+      .list_2_txt {
+        display: flex;
+      }
+    }
+  }
+}
+
+.esport {
+  ul {
+    .list_3 > div {
+      display: grid;
+      grid-template-columns: 1fr 50px;
+      background: #f8f8f8;
+      border: 0.4px solid #ffffff;
+      box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+      font-size: 13px;
+
+      .list_3_txt {
+        display: flex;
+        padding-left: 25px;
+      }
+    }
+  }
+}
+
+.games {
+  ul {
+    .list_4 > div {
+      background: #eaeaea;
+      border: 0.4px solid #3333332a;
+      box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+      font-size: 13px;
+
+      .list_4_txt {
+        display: flex;
+        padding-left: 25px;
+      }
+    }
+  }
+}
+
+.list_1_txt:hover, .list_2_txt:hover, .list_3_txt:hover, .list_4_txt:hover {
+  cursor: pointer;
+  background: #e0e0e0;
+}
+
+li > div > div {
+  padding: 15px;
+}
+
+.list_arrow {
+  width: 45px;
+  //   padding: 15px;
+  box-sizing: border-box;
+  background-size: 100% 100%;
+}
+
+.sport_icon {
+  height: 18px;
+  width: 18px;
+  margin-right: 10px;
+}

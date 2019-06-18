@@ -1,0 +1,261 @@
+.form_wrapper {
+    display: grid;
+    grid-template-columns: 1fr minmax(100px,1000px) 1fr;
+    grid-template-rows: auto 1fr;
+    justify-items: center;
+    grid-template-areas: 
+    ". Header ."
+    ". Form .";
+
+    //ONLY WHEN STYLING - REMOVE WHEN DONE FOR FINAL FORM
+    background: white;
+
+  .formHeader_con {
+      grid-area: Header;
+  }  
+
+form {
+    grid-area: Form;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 5%;
+
+    .errorText {
+        position: absolute;
+        bottom: 0;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: red;
+    }
+    select {
+        margin: 45px;
+        transition: .5s;
+        border: solid #535353;
+        border-radius: 0;
+        border-width: 0 0 3px;
+        background: none;
+        width: 50%;
+        color: grey;
+
+        font-size: 18px; 
+        cursor: pointer;
+
+        &:focus {
+        border-color: black;
+        color: black;
+        // removing default focus style
+        outline: 0;
+        }
+
+    }
+
+    .nemIDImg {
+        width: 30%;
+    }
+
+    .formIntroText {
+        text-align: center;
+        width: 50%;
+        margin-bottom: 2.5%;
+
+        p {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            color: #535353;
+        }
+    }
+
+    .maxBettingText {
+        text-align: center;
+        width: 50%;
+    }
+
+    .inputStyle {
+        position: relative;
+        margin: 45px;
+        width: 50%;
+
+    .errorMessage {
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+        top: 25px;
+            
+    }
+
+
+    label {
+        position: absolute;
+        top: -25px;
+        left: 0;
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.2s ease-out;
+        font-size: 18px;
+    }
+
+
+        input {
+            transition: .5s;
+            border: solid #535353;
+            border-radius: 0;
+            border-width: 0 0 3px;
+            background: none;
+            width: 100%;
+
+            font-size: 18px;
+
+            &:focus {
+                border-color: black;
+            // removing default focus style
+                outline: 0;
+            }
+            &:valid {
+                color: #004b32;
+                border-color: #004b32;
+            }
+            &:invalid {
+                color: #c50005;
+
+                & + .helpText {
+                    opacity: 1;
+                }
+
+            }
+            //FOR PLACEHOLDER OVER INPUT
+            &:placeholder-shown + label {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+        }
+    }
+    // IF FORM HAS TWO INPUT FIELDS IN SAME PLACE
+    .doubleInputfield1 {
+        display: flex;
+        flex-direction: row;
+        width: 50%;
+        
+
+        .inputStyle {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .inputStyle:nth-child(1) {
+        width: 100%;
+        margin-right: 5%;
+        }
+    }
+    .doubleInputfield2 {
+        display: flex;
+        flex-direction: row-reverse;
+        width: 50%;
+        
+
+        .inputStyle {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .inputStyle:nth-child(1) {
+        width: 100%;
+        margin-left: 5%;
+        }
+    }
+
+    // IF FORM HAS TWO BUTTONS WE USE THIS CLASS
+    .FormDoubleButtons {
+
+        button {
+            margin: 10px;
+        }
+
+        button:nth-child(2) {
+            background: #E4E4E4;
+            border-color: #E4E4E4;
+
+            &:hover {
+                background: darken(#E4E4E4, 10%);
+                border-color: darken(#E4E4E4, 10%);
+            }
+        }
+    }
+
+    button {
+    background-color: #feb700;
+    outline: none;
+    color: #323232;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    width: 150px;
+    padding: 10px;
+    border: 1px solid #feb700;
+    border-radius: 5px;
+    -webkit-transition: opacity .4s ease;
+    transition: opacity .4s ease;
+
+    &:hover {
+        background: darken(#feb700, 10%);
+        border-color: darken(#feb700, 10%);
+    }
+    }
+
+ }
+
+}
+
+// RESPONSIVE
+@media only screen and (max-width: 768px) {
+    .form_wrapper{
+        .formHeader_con {
+            width: 90%;
+            text-align: center;
+        }
+
+    }
+  }
+
+  @media only screen and (max-width: 415px) {
+    .form_wrapper{
+        form {
+            .formIntroText {
+                width: 85%;
+            }
+            .inputStyle {
+                width: 75%;
+
+                .errorMessage {
+                    font-size: 0.8em;
+                }
+            }
+            .doubleInputfield1 {
+                width: 75%;
+            }
+            .doubleInputfield2 {
+                width: 75%;
+            }
+            select {
+                width: 75%;
+            }
+            .errorText {
+                font-size: 0.8em;
+            }
+            .maxBettingText {
+                width: 85%;
+            }
+            .nemIDImg {
+                width: 65%;
+                margin: 10px;
+            }
+        }
+    }
+  }
