@@ -108,8 +108,8 @@ export class FormSecurityDetails extends Component {
                 )}
         
                      <div className="FormDoubleButtons">
-                        <button style={buttonStyle} onClick={this.continue}>Næste</button>
                         <button onClick={this.back}>Back</button>
+                        <button style={buttonStyle} onClick={this.continue}>Næste</button>
                     </div> 
     {nextError === true ? <div className="errorText">Du mangler at indfylde felter.</div> : ""}  
                 </form>
