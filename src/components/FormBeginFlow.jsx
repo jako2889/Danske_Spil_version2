@@ -90,13 +90,17 @@ export class FormBeginFlow extends Component {
         });
         console.log("IS INPUT EMAIL SAME AS DATA EMAIL?",checkAnyEmailTrue);
 
-        if(checkAnyEmailTrue === true) {
-            console.log("EMAIL IS INCORRECT - ALREADY IN USE")
+        if(checkAnyEmailTrue === true || password !== confirmPassword) {
+            console.log("EMAIL IS INCORRECT - ALREADY IN USE");
+            console.log("Password is not the same", password, confirmPassword);
+            //SET STATE
+            this.setState({ userEmailError: true }, function () {
+                console.log(this.state.userEmailError);
+           });
             //CALL CURRENT STEP
             this.currentStep(e);
-            //SET STATE
-            this.setState({userEmailError: true});
-        }else {
+
+        }else if(checkAnyEmailTrue === false && password === confirmPassword) {
             console.log("EMAIL IS FINE");
             //CALL NEXT STEP
             const { step } =  this.state;
@@ -233,7 +237,7 @@ export class FormBeginFlow extends Component {
         console.log("This is accountvalues: ",accountValues);
         console.log("STATE EMAIL",email);
 
-
+        console.log(password, confirmPassword);
 
         //MAKE VARIALBE THAT ITERATE WITH MAP THROUGH ACCVALUES AND SETS VALUE TO TRUE IF STRING IS EMPTY
         let check = accountValues.map((value => {
@@ -248,18 +252,21 @@ export class FormBeginFlow extends Component {
 
         console.log("IS THERE AN ERROR IN ANY INPUT?",realCheck);
         if(realCheck === true) {
-                console.log("ERROR IN INPUT");
+                console.log("ERROR IN INPUT", realCheck);
                 
                  //CALL CURRENT STEP
                  this.currentStep(e);
                  //ALERT TEMPORARY
-                 this.setState({nextError: true});
-                 
+                 this.setState({
+                     nextError: true,
+                    password: "",
+                    confirmPassword: ""
+                    });
         }else {
                 console.log("NO ERRORS IN INPUT");
                 //CALL NEXT STEP
                 this.nextStep(e);
-                this.setState({nextError: false});
+                this.setState({nextError: false,});
         }
 
     }

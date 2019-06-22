@@ -68,10 +68,6 @@ componentDidMount() {
                                 <p key={this.state.id}>{item.userName}</p>
                                 </div>
                                 <div className="user_field">
-                                <p><b>Password:</b></p>    
-                                <p key={this.state.id}>{item.password}</p>
-                                </div>
-                                <div className="user_field">
                                 <p><b>Cpr-nummer:</b></p>    
                                 <p key={this.state.id}>{item.cpr}</p>
                                 </div>

@@ -35,6 +35,7 @@ export class FormSecurityDetails extends Component {
         console.log(nextError);
 
         let buttonStyle = {};
+        let ErrorInputStyle = {};
 
         if(nextError === true) {
             buttonStyle = {
@@ -42,11 +43,21 @@ export class FormSecurityDetails extends Component {
                 borderColor: "#80808087",
                 transition: "1s"
             };
+            ErrorInputStyle = {
+                borderColor: "#c50005",
+                color: "#c50005",
+                transition: "1s"
+            };
         }else {
             buttonStyle = {
                 background: "#feb700",
                 borderColor: "#feb700",
                 transition: "1s"
+            };
+            ErrorInputStyle = {
+                borderColor: "#535353",
+                color: "",
+                transition: ".5s"
             };
         }
 
@@ -59,7 +70,7 @@ export class FormSecurityDetails extends Component {
                         <p>Du skal vælge et sikkerhedsspørgsmål og svar, som vi skal bruge, hvis du kontakter os omkring din konto.</p>
                     </div>
 
-                    <select name="securityQuestion" className="securityQuestion" onChange={handleChange("securityQuestion")}
+                    <select style={ErrorInputStyle} name="securityQuestion" className="securityQuestion" onChange={handleChange("securityQuestion")}
                     defaultValue={values.securityQuestion}>
                             <option value="">Vælg sikkerhedsspørgsmål</option>
                             <option value="Mors fødselsnavn">Mors fødselsnavn</option>
@@ -78,7 +89,7 @@ export class FormSecurityDetails extends Component {
                 )}
 
                     <div className="inputStyle">
-                            <input name="securityAnswer" type="text" placeholder="Svar på sikkerhedsspørgsmål"
+                            <input style={ErrorInputStyle} name="securityAnswer" type="text" placeholder="Svar på sikkerhedsspørgsmål"
                             onChange={handleChange("securityAnswer")}
                             defaultValue={values.securityAnswer}
                             required
@@ -94,7 +105,7 @@ export class FormSecurityDetails extends Component {
                      <p>Du bedes oplyse, hvor meget du forventer at vil spille om måneden på din Blå Konto. Vær opmærksom på at det beløb du angiver ikke er en grænse for, hvor meget du kan spille for.</p>
                      </div>
 
-                     <select name="maxBetting" className="maxBetting" onChange={handleChange("maxBetting")}
+                     <select style={ErrorInputStyle} name="maxBetting" className="maxBetting" onChange={handleChange("maxBetting")}
                     defaultValue={values.maxBetting}>
                             <option value="">Vælg spillebeløb pr. måned</option>
                             <option value="0 - 5.000 kr.">0 - 5.000 kr.</option>

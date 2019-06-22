@@ -34,6 +34,7 @@ export class FormPersonalDetails extends Component {
         let nextError = this.props.nextError;
         console.log(nextError);
         let buttonStyle = {};
+        let ErrorInputStyle = {};
 
         if(nextError === true) {
             buttonStyle = {
@@ -41,11 +42,21 @@ export class FormPersonalDetails extends Component {
                 borderColor: "#80808087",
                 transition: "1s"
             };
+            ErrorInputStyle = {
+                borderColor: "#c50005",
+                color: "#c50005",
+                transition: "1s"
+            };
         }else {
             buttonStyle = {
                 background: "#feb700",
                 borderColor: "#feb700",
                 transition: "1s"
+            };
+            ErrorInputStyle = {
+                borderColor: "#535353",
+                color: "",
+                transition: ".5s"
             };
         }
 
@@ -60,7 +71,7 @@ export class FormPersonalDetails extends Component {
                     </div>
                     
                     <div className="inputStyle">
-                    <input name="cpr" type="text" pattern="[0-9]+" placeholder="Cpr-nummer"
+                    <input style={ErrorInputStyle} name="cpr" type="text" pattern="[0-9]+" placeholder="Cpr-nummer"
                      onChange={handleChange("cpr")}
                      defaultValue={values.cpr}
                      required
@@ -72,7 +83,7 @@ export class FormPersonalDetails extends Component {
                 </div>
     
                     <div className="inputStyle">
-                    <input name="firstName" type="text" placeholder="Fornavn"
+                    <input style={ErrorInputStyle} name="firstName" type="text" placeholder="Fornavn"
                      onChange={handleChange("firstName")}
                      defaultValue={values.firstName}
                      required
@@ -84,7 +95,7 @@ export class FormPersonalDetails extends Component {
                     </div>
     
                     <div className="inputStyle">
-                    <input name="lastName" type="text" placeholder="Efternavn"
+                    <input style={ErrorInputStyle} name="lastName" type="text" placeholder="Efternavn"
                      onChange={handleChange("lastName")}
                      defaultValue={values.lastName}
                      required
@@ -97,7 +108,7 @@ export class FormPersonalDetails extends Component {
     
                     <div className="doubleInputfield1">
                         <div className="inputStyle">
-                            <input name="streetName" type="text" placeholder="Vejnavn"
+                            <input style={ErrorInputStyle} name="streetName" type="text" placeholder="Vejnavn"
                             onChange={handleChange("streetName")}
                             defaultValue={values.streetName}
                             required
@@ -108,7 +119,7 @@ export class FormPersonalDetails extends Component {
                 )}
                         </div>   
                         <div className="inputStyle">
-                            <input name="houseNumber" type="text" placeholder="Husnummer"
+                            <input style={ErrorInputStyle} name="houseNumber" type="text" placeholder="Husnummer"
                             onChange={handleChange("houseNumber")}
                             defaultValue={values.houseNumber}
                             required
@@ -122,7 +133,7 @@ export class FormPersonalDetails extends Component {
 
                      <div className="doubleInputfield2">
                      <div className="inputStyle">
-                            <input name="city" type="text" placeholder="Bynavn"
+                            <input style={ErrorInputStyle} name="city" type="text" placeholder="Bynavn"
                             onChange={handleChange("city")}
                             defaultValue={values.city}
                             required
@@ -133,7 +144,7 @@ export class FormPersonalDetails extends Component {
                 )}
                         </div>  
                         <div className="inputStyle">
-                            <input name="postNumber" type="text" pattern="[0-9]+" placeholder="Postnummer"
+                            <input style={ErrorInputStyle} name="postNumber" type="text" pattern="[0-9]+" placeholder="Postnummer"
                             onChange={handleChange("postNumber")}
                             defaultValue={values.postNumber}
                             required
@@ -144,7 +155,7 @@ export class FormPersonalDetails extends Component {
                 )}
                         </div>    
                      </div> 
-                     <select name="country" className="countrySelect" onChange={handleChange("country")}
+                     <select style={ErrorInputStyle} name="country" className="countrySelect" onChange={handleChange("country")}
                     defaultValue={values.country}>
                             <option value="">Land</option>
                             <option value="Afghanistan">Afghanistan</option>
@@ -269,7 +280,7 @@ export class FormPersonalDetails extends Component {
                 )}
 
                     <div className="inputStyle">
-                    <input name="phone" type="text" pattern="[0-9]+" placeholder="Telefonnummer"
+                    <input style={ErrorInputStyle} name="phone" type="text" pattern="[0-9]+" placeholder="Telefonnummer"
                      onChange={handleChange("phone")}
                      defaultValue={values.phone}
                      required
