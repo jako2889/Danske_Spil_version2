@@ -44,13 +44,13 @@ export class FormBeginFlow extends Component {
             maxBetting: ""
         },
         nextError: false,
-        userData: [],
+        userEmails: [],
         userEmailError: false
     }
 
     componentDidMount() {
         // FETCH DATABASE AND POST DATA STRING TO DATABASE
-        fetch("https://volt3sem-11e6.restdb.io/rest/information", {
+        fetch(`https://volt3sem-11e6.restdb.io/rest/information?q={}&h={"$fields":{"email":1},"$max":100}`, {
            method: "get",
            headers: {
             "Content-Type": "application/json; charset=utf-8",
@@ -59,14 +59,15 @@ export class FormBeginFlow extends Component {
            }
        })
        .then(res => res.json())
-       .then(data => {
+       .then(emails => {
 
-   // SET STATE TO BE EQUAL TO DATA
+        console.log("Email data",emails);
+
+           // SET STATE TO BE EQUAL TO DATA
        this.setState({
-           userData: data,
+           userEmails: emails,
        })
 
-       console.log(this.state.userData);
        });
 }
 
@@ -74,23 +75,24 @@ export class FormBeginFlow extends Component {
     nextStep = (e) => {
         e.preventDefault();
 
-        //WHEN TRYING TO GO TO NEXT STEP CHECK IF EMAIL IS ALREADY IN USE
-        let {email, userName, password, confirmPassword} = this.state;
-        //MAKE USER DATA FROM DATABASE INTO VARIABLE AND MAP THROUGH DATA TO FIND EMAILS
-        let userData = this.state.userData;
-        console.log("THIS IS THE USER DATA: ", userData);
-        let userEmailCheck = userData.map((user => {
-            return email  === user.email && true;
-        }));
-        console.log("EMAILS IS SAME AS DATA EMAIL: ",userEmailCheck);
         
-        //LOOP THROUGH AND CHECK IF ANY IS TRUE IF TRUE PASS TRUE IF ELSE PASS FALSE
-        let checkAnyEmailTrue = userEmailCheck.some(function (item) {
-            return item === true;
-        });
-        console.log("IS INPUT EMAIL SAME AS DATA EMAIL?",checkAnyEmailTrue);
+      //MAKE USER DATA FROM DATABASE INTO VARIABLE AND MAP THROUGH DATA TO FIND EMAILS
+        let {email, userEmails, password, confirmPassword} = this.state;
 
-        if(checkAnyEmailTrue === true || password !== confirmPassword) {
+      //WHEN TRYING TO GO TO NEXT STEP CHECK IF EMAIL IS ALREADY IN USE
+        let CheckEmails = userEmails.map((emailObject => {
+            return emailObject.email === email && true
+         }));
+ 
+      //LOOP THROUGH AND CHECK IF ANY IS TRUE IF TRUE PASS TRUE IF ELSE PASS FALSE
+        let CheckEmailIsTrue = CheckEmails.some(function (item) {
+             return item === true;
+         });
+ 
+         console.log("Check if any email is the same v2:",CheckEmailIsTrue);
+        
+
+        if(CheckEmailIsTrue === true || password !== confirmPassword) {
             console.log("EMAIL IS INCORRECT - ALREADY IN USE");
             console.log("Password is not the same", password, confirmPassword);
             //SET STATE
@@ -100,7 +102,7 @@ export class FormBeginFlow extends Component {
             //CALL CURRENT STEP
             this.currentStep(e);
 
-        }else if(checkAnyEmailTrue === false && password === confirmPassword) {
+        }else if(CheckEmailIsTrue === false && password === confirmPassword) {
             console.log("EMAIL IS FINE");
             //CALL NEXT STEP
             const { step } =  this.state;
