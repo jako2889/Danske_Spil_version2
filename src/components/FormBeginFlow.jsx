@@ -71,13 +71,10 @@ export class FormBeginFlow extends Component {
        });
 }
 
-    // PROCEED TO NEXT STEP
-    nextStep = (e) => {
-        e.preventDefault();
-
-        
+HandleEmailCheck() {
+           
       //MAKE USER DATA FROM DATABASE INTO VARIABLE AND MAP THROUGH DATA TO FIND EMAILS
-        let {email, userEmails, password, confirmPassword} = this.state;
+      let {email, userEmails} = this.state;
 
       //WHEN TRYING TO GO TO NEXT STEP CHECK IF EMAIL IS ALREADY IN USE
         let CheckEmails = userEmails.map((emailObject => {
@@ -90,9 +87,35 @@ export class FormBeginFlow extends Component {
          });
  
          console.log("Check if any email is the same v2:",CheckEmailIsTrue);
-        
 
-        if(CheckEmailIsTrue === true || password !== confirmPassword) {
+         let EmailCheckingParameter;
+         
+        if(CheckEmailIsTrue === true) {
+            console.log("EMAIL IS THE SAME");
+            
+            return EmailCheckingParameter = true;
+
+        }else if(CheckEmailIsTrue === false) {
+            console.log("EMAIL IS NOT THE SAME");
+           
+            return EmailCheckingParameter = false;
+    }
+    console.log("EMAIL PARAMETER IS: ",EmailCheckingParameter);
+
+    return EmailCheckingParameter;
+}
+
+    // PROCEED TO NEXT STEP
+    nextStep = (e) => {
+        e.preventDefault();
+
+        this.HandleEmailCheck();
+        console.log("EMAIL METHOD PARAMETER IS:",this.HandleEmailCheck());
+      //MAKE USER DATA FROM DATABASE INTO VARIABLE AND MAP THROUGH DATA TO FIND EMAILS
+        let {userEmailError, password, confirmPassword} = this.state;    
+        console.log("ERROR IN EMAIL IS:",userEmailError);    
+
+        if(this.HandleEmailCheck() === true || password !== confirmPassword) {
             console.log("EMAIL IS INCORRECT - ALREADY IN USE");
             console.log("Password is not the same", password, confirmPassword);
             //SET STATE
@@ -102,15 +125,17 @@ export class FormBeginFlow extends Component {
             //CALL CURRENT STEP
             this.currentStep(e);
 
-        }else if(CheckEmailIsTrue === false && password === confirmPassword) {
+        }else if(this.HandleEmailCheck() === false && password === confirmPassword) {
             console.log("EMAIL IS FINE");
+
+            //SET STATE
+            this.setState({userEmailError: false});
+
             //CALL NEXT STEP
             const { step } =  this.state;
             this.setState({
                 step: step + 1
             });
-            //SET STATE
-            this.setState({userEmailError: false});
     }
 
 
